@@ -32,20 +32,15 @@
 		<script>
 			suite('<paper-bottom-sheet>', function() {
 				suite('basic behavior', function() {
-					var items;
+					var element;
 	
 					setup(function() {
-						var element = fixture('TrivialElement');
-						items = element.querySelectorAll("paper-bottom-sheet-item");
+						element = fixture('TrivialElement');
 					});
 					
 					test('adds custom items on top', function() {
+						var items = element.items;
 						expect(items[0].text).to.be.eql("Star");
-					});
-					
-					test('adds cancel item to bottom', function() {
-						expect(items.length).to.be.eql(2);
-						expect(items[1].text).to.be.eql("Cancel");
 					});
 				});
 				
@@ -57,8 +52,7 @@
 					});
 					
 					test('sets cancel based on cancel-text attribute', function() {
-						var item = element.querySelector("paper-bottom-sheet-item");
-						expect(item.text).to.be.eql("Abbrechen");
+						expect(element.$.cancel.text).to.be.eql("Abbrechen");
 					});
 				});
 			});

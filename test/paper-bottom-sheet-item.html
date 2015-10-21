@@ -36,13 +36,11 @@
 					});
 					
 					test('sets text based on text attribute', function() {
-						var text = Polymer.dom(element.root).querySelector("span");
-						expect(text.textContent).to.be.eql("Star");
+						expect(element.$.text.textContent).to.be.eql("Star");
 					});
 					
 					test('sets icon based on icon attribute', function() {
-						var icon = Polymer.dom(element.root).querySelector("iron-icon");
-						expect(icon.icon).to.be.eql("icons:star-border");
+						expect(element.$.icon.icon).to.be.eql("icons:star-border");
 					});
 				});
 
