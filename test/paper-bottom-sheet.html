@@ -45,8 +45,8 @@
 					});
 					
 					test('adds custom items in right order', function() {
-						expect(items[0].text).to.be.eql("Star");
-						expect(items[1].text).to.be.eql("Delete");
+						expect(items[0].getAttribute("text")).to.be.eql("Star");
+						expect(items[1].getAttribute("text")).to.be.eql("Delete");
 					});
 				});
 				
