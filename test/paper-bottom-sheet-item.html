@@ -36,11 +36,13 @@
 					});
 					
 					test('sets text based on text attribute', function() {
-						expect(Polymer.dom(element.$.text).textContent).to.be.eql("Star");
+						var text = Polymer.dom(element.root).querySelector("#text");
+						expect(text.textContent).to.be.eql("Star");
 					});
 					
 					test('sets icon based on icon attribute', function() {
-						expect(element.$.icon.icon).to.be.eql("icons:star-border");
+						var icon = Polymer.dom(element.root).querySelector("#icon");
+						expect(icon.icon).to.be.eql("icons:star-border");
 					});
 				});
 
@@ -54,11 +56,13 @@
 					});
 					
 					test('defaults to non-warning', function() {
-						expect(elementWithoutWarning.$.item.getAttribute("warning")).to.be.eql(null);
+						var item = Polymer.dom(elementWithoutWarning.root).querySelector("#item");
+						expect(item.getAttribute("warning")).to.be.eql(null);
 					});
 					
 					test('sets warning based on warning attribute', function() {
-						expect(elementWithWarning.$.item.getAttribute("warning")).to.not.be.eql(null);
+						var item = Polymer.dom(elementWithWarning.root).querySelector("#item");
+						expect(item.getAttribute("warning")).to.not.be.eql(null);
 					});
 				});
 			});
