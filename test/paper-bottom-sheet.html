@@ -19,6 +19,7 @@
 			<template>
 				<paper-bottom-sheet>
 					<paper-bottom-sheet-item text="Star" icon="icons:star-border"></paper-bottom-sheet-item>
+					<paper-bottom-sheet-item text="Delete" icon="icons:delete"></paper-bottom-sheet-item>
 				</paper-bottom-sheet>
 			</template>
 		</test-fixture>
@@ -32,15 +33,20 @@
 		<script>
 			suite('<paper-bottom-sheet>', function() {
 				suite('basic behavior', function() {
-					var element;
+					var items;
 	
 					setup(function() {
-						element = fixture('TrivialElement');
+						var element = fixture('TrivialElement');
+						items = element.items;
 					});
 					
 					test('adds custom items', function() {
-						var items = element.items;
+						expect(items.length).to.be.eql(2);
+					});
+					
+					test('adds custom items in right order', function() {
 						expect(items[0].text).to.be.eql("Star");
+						expect(items[1].text).to.be.eql("Delete");
 					});
 				});
 				
