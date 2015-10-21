@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+	<head>
+		<title>paper-bottom-sheet</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+		<script src="../../web-component-tester/browser.js"></script>
+		<script src="../../test-fixture/test-fixture-mocha.js"></script>
+		
+		<link rel="import" href="../paper-bottom-sheet-item.html">
+		<link rel="import" href="../../test-fixture/test-fixture.html">
+	</head>
+	<body>
+	
+		<test-fixture id="TrivialElement">
+			<template>
+				<paper-bottom-sheet-item text="Star" icon="icons:star-border"></paper-bottom-sheet-item>
+			</template>
+		</test-fixture>
+	
+		<test-fixture id="ElementWithWarning">
+			<template>
+				<paper-bottom-sheet-item text="Star" icon="icons:star-border" warning></paper-bottom-sheet-item>
+			</template>
+		</test-fixture>
+	
+		<script>
+			suite('<paper-bottom-sheet-item>', function() {
+				suite('set item content behavior', function() {
+					var element;
+	
+					setup(function() {
+						element = fixture('TrivialElement');
+					});
+					
+					test('sets text based on text attribute', function() {
+						var text = Polymer.dom(element.root).querySelector("span");
+						expect(text.textContent).to.be.eql("Star");
+					});
+					
+					test('sets icon based on icon attribute', function() {
+						var icon = Polymer.dom(element.root).querySelector("iron-icon");
+						expect(icon.icon).to.be.eql("icons:star-border");
+					});
+				});
+
+				suite('warning behavior', function() {
+					var elementWithoutWarning;
+					var elementWithWarning;
+	
+					setup(function() {
+						elementWithoutWarning = fixture('TrivialElement');
+						elementWithWarning = fixture('ElementWithWarning');
+					});
+					
+					test('defaults to non-warning', function() {
+						expect(elementWithoutWarning.warning).to.be.eql(false);
+					});
+					
+					test('sets warning based on warning attribute', function() {
+						expect(elementWithWarning.warning).to.be.eql(true);
+					});
+				});
+			});
+		</script>
+	
+	</body>
+</html>
