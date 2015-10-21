@@ -1,0 +1,33 @@
+<html>
+	<head>
+	    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+		<link rel="import" href="../paper-bottom-sheet.html">
+		<link rel="import" href="../paper-bottom-sheet-item.html">
+	</head>
+	
+	<body>
+		<paper-bottom-sheet id="sheet">
+			<paper-bottom-sheet-item text="Star" icon="icons:star-border"r"></paper-bottom-sheet-item>
+			<paper-bottom-sheet-item text="Delete" icon="icons:delete" warning></paper-bottom-sheet-item>
+		</paper-bottom-sheet>
+		
+		<button type="button" onclick="openSheet()">Open</button>
+	
+		<script>
+			function openSheet() {
+				var sheet = document.getElementById("sheet");
+				if (sheet) {
+					sheet.open();
+				}
+		    }
+			
+			function tapStar() {
+				alert("Stared");
+			}
+			
+			function tapDelete() {
+				alert("Deleted");
+			}
+		</script>
+	</body>
+</html>

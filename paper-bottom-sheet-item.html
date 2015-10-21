@@ -1,0 +1,55 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../paper-item/paper-icon-item.html">
+<link rel="import" href="../paper-item/paper-item-body.html">
+<link rel="import" href="../paper-ripple/paper-ripple.html">
+<link rel="import" href="../paper-styles/paper-styles.html">
+
+<dom-module id="paper-bottom-sheet-item">
+
+	<template>
+		<style>
+			.item {
+				margin: 0;
+				background: white;
+				position: relative;
+			}
+	
+			.ripple {
+				/* Workaround: Ripple doesn"t claim full space in paper-icon-item */
+				padding-right: 0;
+			}
+			
+			.item[warning] {
+				color: var(--paper-red-900);
+			}
+		</style>
+
+		<paper-icon-item class="item" warning$=[[warning]]>
+			<paper-ripple class="ripple" fit></paper-ripple>
+			<iron-icon icon=[[icon]] item-icon></iron-icon>
+			<span>[[text]]</span>
+		</paper-icon-item>
+	</template>
+
+</dom-module>
+
+<script>
+
+(function() {
+
+	Polymer({
+		is: "paper-bottom-sheet-item",
+		properties: {
+			text: String,
+			icon: String,
+			warning: {
+				type: Boolean,
+				value: false
+			}
+		}
+	});
+
+})();
+
+</script>

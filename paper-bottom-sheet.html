@@ -1,0 +1,58 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-dialog/paper-dialog.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="paper-bottom-sheet-item.html">
+
+<dom-module id="paper-bottom-sheet">
+
+	<template>
+		<style>
+			.dialog {
+				background-color: rgba(0,0,0,0.6)!important;
+				margin: 0!important;
+			}
+	
+			.content {
+				position: absolute;
+				width: 100%;
+				bottom: 0;
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+
+		<paper-dialog id="dialog" class="dialog fit" no-cancel-on-outside-click modal>
+			<div class="content">
+				<content></content>
+				<paper-bottom-sheet-item text="[[cancelButton]]" icon="icons:close" on-tap="close"></paper-bottom-sheet-item>
+			</div>
+		</paper-dialog>
+	</template>
+
+</dom-module>
+
+<script>
+
+(function() {
+
+	Polymer({
+		is: "paper-bottom-sheet",
+		properties: {
+			cancelButton: {
+				type: String,
+				value: "Cancel"
+			}
+		},
+
+		// Public methods
+		open: function() {
+			this.$.dialog.open();
+		},
+		close: function() {
+			this.$.dialog.close();
+		}
+	});
+
+})();
+
+</script>
