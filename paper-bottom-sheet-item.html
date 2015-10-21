@@ -1,5 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
 <link rel="import" href="../paper-item/paper-icon-item.html">
 <link rel="import" href="../paper-item/paper-item-body.html">
 <link rel="import" href="../paper-ripple/paper-ripple.html">
@@ -42,7 +43,10 @@
 		is: "paper-bottom-sheet-item",
 		properties: {
 			text: String,
-			icon: String,
+			icon: {
+				String,
+				value: "icons:check"
+			},
 			warning: {
 				type: Boolean,
 				value: false
