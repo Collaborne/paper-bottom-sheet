@@ -21,17 +21,17 @@ Items can be added with the element `paper-bottom-sheet`. The last item in the s
 
 These properties are available for `paper-bottom-sheet`:
 
-Property        | Description                                                 | Default value
---------------- | ----------------------------------------------------------- | -------------
-**cancel-text** | Text of cancel item. This can be used to localize the item. | Cancel
+Property        | Type   | Description                                                      | Default value
+--------------- | ------ | ---------------------------------------------------------------- | -------------
+**cancel-text** | String | Text for the cancel item. This can be used to localize the item. | Cancel
 
 These properties are available for `paper-bottom-sheet-item`:
 
-Property     | Description                   | Default value       
------------- | ----------------------------- | -------------
-**text**     | Text of item                  |
-**icon**     | Icon ID of the item. The icon will be passed to [`iron-icon`](https://elements.polymer-project.org/elements/iron-icon). See for [options](https://elements.polymer-project.org/elements/iron-icons?view=demo:demo/index.html&active=iron-icons). | icons:check
-**warning**  | Flag if the item is a warning | false
+Property     | Type    | Description                   | Default value       
+------------ | ------- | ----------------------------- | -------------
+**text**     | String  | Text for the item             |
+**icon**     | String  | Icon ID for the item. The icon will be passed to [`iron-icon`](https://elements.polymer-project.org/elements/iron-icon). See for [options](https://elements.polymer-project.org/elements/iron-icons?view=demo:demo/index.html&active=iron-icons). | icons:check
+**warning**  | Boolean | Flag if the item is a warning | false
 
 
 ## Continuous integration
