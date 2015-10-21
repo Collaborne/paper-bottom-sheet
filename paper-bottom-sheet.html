@@ -24,7 +24,7 @@
 		<paper-dialog id="dialog" class="dialog fit" no-cancel-on-outside-click modal>
 			<div class="content">
 				<content></content>
-				<paper-bottom-sheet-item text="[[cancelButton]]" icon="icons:close" on-tap="close"></paper-bottom-sheet-item>
+				<paper-bottom-sheet-item text="[[cancelText]]" icon="icons:close" on-tap="close"></paper-bottom-sheet-item>
 			</div>
 		</paper-dialog>
 	</template>
@@ -38,7 +38,7 @@
 	Polymer({
 		is: "paper-bottom-sheet",
 		properties: {
-			cancelButton: {
+			cancelText: {
 				type: String,
 				value: "Cancel"
 			}
