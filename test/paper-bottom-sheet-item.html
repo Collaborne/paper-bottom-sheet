@@ -54,11 +54,11 @@
 					});
 					
 					test('defaults to non-warning', function() {
-						expect(elementWithoutWarning.warning).to.be.eql(false);
+						expect(elementWithoutWarning.getAttribute("warning")).to.be.eql(false);
 					});
 					
 					test('sets warning based on warning attribute', function() {
-						expect(elementWithWarning.warning).to.be.eql(true);
+						expect(elementWithWarning.getAttribute("warning")).to.be.eql(true);
 					});
 				});
 			});
