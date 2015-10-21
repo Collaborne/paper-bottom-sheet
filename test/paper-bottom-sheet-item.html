@@ -22,7 +22,7 @@
 	
 		<test-fixture id="ElementWithWarning">
 			<template>
-				<paper-bottom-sheet-item text="Star" icon="icons:star-border" warning></paper-bottom-sheet-item>
+				<paper-bottom-sheet-item text="Delete" warning></paper-bottom-sheet-item>
 			</template>
 		</test-fixture>
 	
@@ -36,7 +36,7 @@
 					});
 					
 					test('sets text based on text attribute', function() {
-						expect(element.$.text.textContent).to.be.eql("Star");
+						expect(Polymer.dom(element.$.text).textContent).to.be.eql("Star");
 					});
 					
 					test('sets icon based on icon attribute', function() {
@@ -54,11 +54,11 @@
 					});
 					
 					test('defaults to non-warning', function() {
-						expect(elementWithoutWarning.getAttribute("warning")).to.be.eql(false);
+						expect(elementWithoutWarning.$.item.getAttribute("warning")).to.be.eql(null);
 					});
 					
 					test('sets warning based on warning attribute', function() {
-						expect(elementWithWarning.getAttribute("warning")).to.be.eql(true);
+						expect(elementWithWarning.$.item.getAttribute("warning")).to.not.be.eql(null);
 					});
 				});
 			});
