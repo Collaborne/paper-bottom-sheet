@@ -21,12 +21,12 @@
 				padding-right: 0;
 			}
 			
-			.item[warning] {
+			:host[warning] {
 				color: var(--paper-red-900);
 			}
 		</style>
 
-		<paper-icon-item id="item" class="item" warning$=[[warning]]>
+		<paper-icon-item id="item" class="item">
 			<paper-ripple class="ripple" fit></paper-ripple>
 			<iron-icon id="icon" icon=[[icon]] item-icon></iron-icon>
 			<span id="text">[[text]]</span>
@@ -49,7 +49,8 @@
 			},
 			warning: {
 				type: Boolean,
-				value: false
+				value: false,
+				reflectToAttribute: true
 			}
 		}
 	});
