@@ -20,12 +20,6 @@
 			</template>
 		</test-fixture>
 	
-		<test-fixture id="ElementWithWarning">
-			<template>
-				<paper-bottom-sheet-item text="Delete" warning></paper-bottom-sheet-item>
-			</template>
-		</test-fixture>
-	
 		<script>
 			suite('<paper-bottom-sheet-item>', function() {
 				suite('set item content behavior', function() {
@@ -37,32 +31,12 @@
 					
 					test('sets text based on text attribute', function() {
 						var text = Polymer.dom(element.root).querySelector("#text");
-						expect(text.textContent).to.be.eql("Star");
+						expect(Polymer.dom(text).textContent).to.be.eql("Star");
 					});
 					
 					test('sets icon based on icon attribute', function() {
 						var icon = Polymer.dom(element.root).querySelector("#icon");
 						expect(icon.icon).to.be.eql("icons:star-border");
-					});
-				});
-
-				suite('warning behavior', function() {
-					var elementWithoutWarning;
-					var elementWithWarning;
-	
-					setup(function() {
-						elementWithoutWarning = fixture('TrivialElement');
-						elementWithWarning = fixture('ElementWithWarning');
-					});
-					
-					test('defaults to non-warning', function() {
-						var item = Polymer.dom(elementWithoutWarning.root).querySelector("#item");
-						expect(item.getAttribute("warning")).to.be.eql(null);
-					});
-					
-					test('sets warning based on warning attribute', function() {
-						var item = Polymer.dom(elementWithWarning.root).querySelector("#item");
-						expect(item.getAttribute("warning")).to.not.be.eql(null);
 					});
 				});
 			});
