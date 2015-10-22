@@ -13,7 +13,7 @@ Items can be added with the element `paper-bottom-sheet`. The last item in the s
 `bower install paper-bottom-sheet`
 
 ```html
-<paper-bottom-sheet id="sheet">
+<paper-bottom-sheet>
   <paper-bottom-sheet-item text="Star" icon="icons:star-border" on-tap="star"></paper-bottom-sheet-item>
   <paper-bottom-sheet-item text="Delete" icon="icons:delete" warning on-tap="delete"></paper-bottom-sheet-item>
 </paper-bottom-sheet>
