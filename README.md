@@ -5,6 +5,9 @@ paper-bottom-sheet [![Bower version](https://badge.fury.io/bo/paper-bottom-sheet
 
 Items can be added with the element `paper-bottom-sheet`. The last item in the sheet is a cancel item.
 
+![Screenshot](/doc/screenshot.png "Screenshot")
+
+
 ## Usage
 
 `bower install paper-bottom-sheet`
