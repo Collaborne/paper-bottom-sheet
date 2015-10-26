@@ -1,7 +1,7 @@
 paper-bottom-sheet [![Bower version](https://badge.fury.io/bo/paper-bottom-sheet.svg)](http://badge.fury.io/bo/paper-bottom-sheet)
 =========
 
-`paper-bottom-sheet` providing a material design modal [bottom sheet](https://www.google.com/design/spec/components/bottom-sheets.html). The web component is built with [Polymer 1.x](https://www.polymer-project.org).
+`paper-bottom-sheet` provides a material design modal [bottom sheet](https://www.google.com/design/spec/components/bottom-sheets.html). The web component is built with [Polymer 1.x](https://www.polymer-project.org).
 
 Items can be added with the element `paper-bottom-sheet`. The last item in the sheet is a cancel item.
 
