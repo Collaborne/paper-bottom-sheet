@@ -52,10 +52,13 @@
 
 		// Public methods
 		open: function() {
+			Polymer.dom(document.body).appendChild(this);
 			this.$.dialog.open();
 		},
 		close: function() {
 			this.$.dialog.close();
+			// Remove the dialog from the DOM
+			Polymer.dom(this.parentNode).removeChild(this);
 		}
 	});
 
