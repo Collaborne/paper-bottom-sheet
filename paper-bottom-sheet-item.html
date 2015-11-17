@@ -16,6 +16,10 @@
 				position: relative;
 			}
 			
+			.icon {
+				opacity: var(--dark-disabled-opacity);
+			}
+			
 			:host[warning] {
 				color: var(--paper-red-900);
 			}
@@ -23,7 +27,7 @@
 
 		<paper-icon-item class="item">
 			<paper-ripple fit></paper-ripple>
-			<iron-icon icon=[[icon]] item-icon></iron-icon>
+			<iron-icon icon=[[icon]] item-icon class='icon'></iron-icon>
 			<span>[[text]]</span>
 		</paper-icon-item>
 	</template>
