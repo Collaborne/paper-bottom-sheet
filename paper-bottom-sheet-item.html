@@ -15,11 +15,6 @@
 				background: white;
 				position: relative;
 			}
-	
-			.ripple {
-				/* Workaround: Ripple doesn"t claim full space in paper-icon-item */
-				padding-right: 0;
-			}
 			
 			:host[warning] {
 				color: var(--paper-red-900);
@@ -27,7 +22,7 @@
 		</style>
 
 		<paper-icon-item class="item">
-			<paper-ripple class="ripple" fit></paper-ripple>
+			<paper-ripple fit></paper-ripple>
 			<iron-icon icon=[[icon]] item-icon></iron-icon>
 			<span>[[text]]</span>
 		</paper-icon-item>
