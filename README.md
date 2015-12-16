@@ -1,4 +1,4 @@
-paper-bottom-sheet [![Bower version](https://badge.fury.io/bo/paper-bottom-sheet.svg)](http://badge.fury.io/bo/paper-bottom-sheet)
+paper-bottom-sheet [![Bower version](https://badge.fury.io/bo/paper-bottom-sheet.svg)](http://badge.fury.io/bo/paper-bottom-sheet) [![Travis state](https://travis-ci.org/Collaborne/paper-bottom-sheet.svg?branch=master)](https://travis-ci.org/Collaborne/paper-bottom-sheet)
 =========
 
 `paper-bottom-sheet` provides a material design modal [bottom sheet](https://www.google.com/design/spec/components/bottom-sheets.html). The web component is built with [Polymer 1.x](https://www.polymer-project.org).
@@ -35,11 +35,6 @@ Property     | Type    | Description                   | Default value
 **text**     | String  | Text for the item             |
 **icon**     | String  | Icon ID for the item. The icon will be passed to [`iron-icon`](https://elements.polymer-project.org/elements/iron-icon). See for [options](https://elements.polymer-project.org/elements/iron-icons?view=demo:demo/index.html&active=iron-icons). | icons:check
 **warning**  | Boolean | Flag if the item is a warning | false
-
-
-## Continuous integration
-
-[Travis-CI](https://travis-ci.org/Collaborne/paper-bottom-sheet) [![Travis state](https://travis-ci.org/Collaborne/paper-bottom-sheet.svg?branch=master)](https://travis-ci.org/Collaborne/paper-bottom-sheet)
 
 
 ## License
