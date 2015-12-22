@@ -4,28 +4,32 @@
 		<link rel="import" href="../paper-bottom-sheet.html">
 		<link rel="import" href="../paper-bottom-sheet-item.html">
 	</head>
-	
+
 	<body>
-		<paper-bottom-sheet id="sheet">
-			<paper-bottom-sheet-item text="Star" icon="icons:star-border"></paper-bottom-sheet-item>
-			<paper-bottom-sheet-item text="Delete" icon="icons:delete" warning></paper-bottom-sheet-item>
-		</paper-bottom-sheet>
-		
-		<button type="button" onclick="openSheet()">Open</button>
-	
+		<template is="dom-bind">
+			<paper-bottom-sheet id="sheet">
+				<paper-bottom-sheet-item text="Star" icon="icons:star-border" on-tap='tapStar'></paper-bottom-sheet-item>
+				<paper-bottom-sheet-item text="Delete" icon="icons:delete" warning on-tap='tapDelete'></paper-bottom-sheet-item>
+			</paper-bottom-sheet>
+
+			<button type="button" on-tap="openSheet">Open</button>
+		</template>
+
 		<script>
-			function openSheet() {
-				var sheet = document.getElementById("sheet");
-				if (sheet) {
-					sheet.open();
-				}
+			var scope = document.querySelector("template[is=dom-bind]");
+			scope.openSheet = function() {
+				this.$.sheet.open();
 		    }
-			
-			function tapStar() {
+
+			scope.tapStar = function() {
+				this.$.sheet.close();
+
 				alert("Stared");
 			}
-			
-			function tapDelete() {
+
+			scope.tapDelete = function() {
+				this.$.sheet.close();
+
 				alert("Deleted");
 			}
 		</script>
