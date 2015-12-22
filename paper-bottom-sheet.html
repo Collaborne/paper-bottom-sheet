@@ -11,8 +11,9 @@
 			.dialog {
 				background-color: rgba(0,0,0,0.6)!important;
 				margin: 0!important;
+				@apply(--layout-fixed-bottom);
 			}
-	
+
 			.content {
 				position: absolute;
 				width: 100%;
@@ -22,7 +23,7 @@
 			}
 		</style>
 
-		<paper-dialog id="dialog" class="dialog fit" no-cancel-on-outside-click modal>
+		<paper-dialog id="dialog" class="dialog" with-backdrop model=[[model]]>
 			<div class="content">
 				<content id="items"></content>
 				<paper-bottom-sheet-item id="cancel" text="[[cancelText]]" icon="icons:close" on-tap="close"></paper-bottom-sheet-item>
@@ -47,7 +48,8 @@
 			cancelText: {
 				type: String,
 				value: "Cancel"
-			}
+			},
+			model: Boolean
 		},
 
 		// Public methods
