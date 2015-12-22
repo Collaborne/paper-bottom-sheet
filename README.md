@@ -24,9 +24,10 @@ Items can be added with the element `paper-bottom-sheet`. The last item in the s
 
 These properties are available for `paper-bottom-sheet`:
 
-Property        | Type   | Description                                                      | Default value
---------------- | ------ | ---------------------------------------------------------------- | -------------
-**cancel-text** | String | Text for the cancel item. This can be used to localize the item. | Cancel
+Property        | Type    | Description                                                                                  | Default value
+--------------- | ------- | -------------------------------------------------------------------------------------------- | -------------
+**cancel-text** | String  | Text for the cancel item. This can be used to localize the item.                             | Cancel
+**modal**       | Boolean | True if the bottom sheet acts like a modal dialog (e.g. can't be closed by clicking outside) | false
 
 These properties are available for `paper-bottom-sheet-item`:
 
