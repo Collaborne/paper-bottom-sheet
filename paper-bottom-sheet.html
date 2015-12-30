@@ -4,6 +4,20 @@
 <link rel="import" href="../iron-selector/iron-selectable.html">
 <link rel="import" href="paper-bottom-sheet-item.html">
 
+<!--
+A material design modal [bottom sheet](https://www.google.com/design/spec/components/bottom-sheets.html)
+
+### Example
+
+```html
+<paper-bottom-sheet>
+  <paper-bottom-sheet-item text="Star" icon="icons:star-border" on-tap="star"></paper-bottom-sheet-item>
+  <paper-bottom-sheet-item text="Delete" icon="icons:delete" warning on-tap="delete"></paper-bottom-sheet-item>
+</paper-bottom-sheet>
+```
+
+@demo demo/index.html
+-->
 <dom-module id="paper-bottom-sheet">
 
 	<template>
@@ -45,10 +59,17 @@
 		],
 
 		properties: {
+			/**
+			 * Text for the cancel item. This can be used to localize the item
+			 */
 			cancelText: {
 				type: String,
 				value: "Cancel"
 			},
+			
+			/**
+			 * True if the bottom sheet acts like a modal dialog (e.g. can't be closed by clicking outside)
+			 */
 			model: Boolean
 		},
 

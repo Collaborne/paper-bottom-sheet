@@ -6,6 +6,19 @@
 <link rel="import" href="../paper-ripple/paper-ripple.html">
 <link rel="import" href="../paper-styles/paper-styles.html">
 
+<!--
+An item in a material design modal [bottom sheet](https://www.google.com/design/spec/components/bottom-sheets.html)
+
+### Example
+
+```html
+<paper-bottom-sheet-item text="Star" icon="icons:star-border" on-tap="star"></paper-bottom-sheet-item>
+<paper-bottom-sheet-item text="Delete" icon="icons:delete" warning on-tap="delete"></paper-bottom-sheet-item>
+```
+
+
+@demo demo/index.html
+-->
 <dom-module id="paper-bottom-sheet-item">
 
 	<template>
@@ -37,11 +50,22 @@
 	Polymer({
 		is: "paper-bottom-sheet-item",
 		properties: {
+			/**
+			 * Text for the item
+			 */
 			text: String,
+			
+			/**
+			 * Icon ID for the item. The icon will be passed to [`iron-icon`](https://elements.polymer-project.org/elements/iron-icon). See for [options](https://elements.polymer-project.org/elements/iron-icons?view=demo:demo/index.html&active=iron-icons).
+			 */
 			icon: {
 				type: String,
 				value: "icons:check"
 			},
+			
+			/**
+			 * True if the item is a warning
+			 */
 			warning: {
 				type: Boolean,
 				value: false,

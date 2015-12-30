@@ -1,3 +1,6 @@
+_[Demo and API Docs](http://collaborne.github.io/paper-bottom-sheet)_
+
+
 paper-bottom-sheet [![Bower version](https://badge.fury.io/bo/paper-bottom-sheet.svg)](http://badge.fury.io/bo/paper-bottom-sheet) [![Travis state](https://travis-ci.org/Collaborne/paper-bottom-sheet.svg?branch=master)](https://travis-ci.org/Collaborne/paper-bottom-sheet)
 =========
 
@@ -7,35 +10,9 @@ Items can be added with the element `paper-bottom-sheet`. The last item in the s
 
 ![Screenshot](/doc/screenshot.png "Screenshot")
 
-
-## Usage
+To use this element:
 
 `bower install paper-bottom-sheet`
-
-```html
-<paper-bottom-sheet>
-  <paper-bottom-sheet-item text="Star" icon="icons:star-border" on-tap="star"></paper-bottom-sheet-item>
-  <paper-bottom-sheet-item text="Delete" icon="icons:delete" warning on-tap="delete"></paper-bottom-sheet-item>
-</paper-bottom-sheet>
-```
-
-
-## Properties
-
-These properties are available for `paper-bottom-sheet`:
-
-Property        | Type    | Description                                                                                  | Default value
---------------- | ------- | -------------------------------------------------------------------------------------------- | -------------
-**cancel-text** | String  | Text for the cancel item. This can be used to localize the item.                             | Cancel
-**modal**       | Boolean | True if the bottom sheet acts like a modal dialog (e.g. can't be closed by clicking outside) | false
-
-These properties are available for `paper-bottom-sheet-item`:
-
-Property     | Type    | Description                   | Default value       
------------- | ------- | ----------------------------- | -------------
-**text**     | String  | Text for the item             |
-**icon**     | String  | Icon ID for the item. The icon will be passed to [`iron-icon`](https://elements.polymer-project.org/elements/iron-icon). See for [options](https://elements.polymer-project.org/elements/iron-icons?view=demo:demo/index.html&active=iron-icons). | icons:check
-**warning**  | Boolean | Flag if the item is a warning | false
 
 
 ## License
