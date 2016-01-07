@@ -76,7 +76,11 @@ A material design modal [bottom sheet](https://www.google.com/design/spec/compon
 		// Public methods
 		open: function() {
 			Polymer.dom(document.body).appendChild(this);
-			this.$.dialog.open();
+
+                        // Wait until dialog is added to the DOM (required for Safari)
+                        setTimeout(function() {
+                                this.$.dialog.open();
+                        }.bind(this), 1);
 		},
 		close: function() {
 			this.$.dialog.close();
