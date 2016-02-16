@@ -14,6 +14,6 @@ before_script:
 - export PATH=$PWD/node_modules/.bin:$PATH
 script:
 - xvfb-run wct
-- "./gpages_build.sh Collaborne info@collaborne.com"
+after_success: '[ ${TRAVIS_PULL_REQUEST} = "false" ] && [ ${TRAVIS_BRANCH} = "master" ] && ./gpages_build.sh Collaborne info@collaborne.com'
 env:
   secure: n33kyX5WZsnzeVj16zZ/AFE1ZSTNN+XTUJ3aeN3Rp/d6XirU0htZHwu53x6blcwFfKdkrRNgkOXgOdoCLrEv9deKKgI4WIUHfrkDQSlZoqLfZr7FMFNiyUD/Hy3eyKixx1kcE9ROUV04Ta1Exx5lN9Zcm6I4RKTcTaKLT4mJ6IR0Ohrd1NWYTtPlH24noAInNL2DShz6IlvXxzYcmrI5dosV3Ojq3dx8DBaBtkoIBJyo/TXrW5LDKNZMiCya8KhDIrs1ASgnWTQh5X7LVR4eTtjRm4RTLrXRGgBom/X7CD7Rg5qNxrT76b5DOsQBkcWSjVYskikCGHkev65ji/HIuaLSzRpc2zeyyYi3/t41fIL57K9ie/B+tLyHFJYxGvn3rhB6r8R5NTHjgxDfmHrMCGjCvtBCRiv8cjZSIApT8OH6qbeJtgw4ipfQhdFzyDBIkScFANBy14URddL/Oq0zmEGFM92gvQLjtGJd1+Nd8pwpmP4aoVHdXk1FgxFuPUC4Hzxnfd1lRTJO5k2l0qJdDc1DkpJ0kV9r7AS+apj6PcESieUlR+wU2jSREb3V30i0naZPB4RI6u2rJe1NpOO3AlkNHeRyPf7nmsN2RkoSfiMz+zYRHa+OFf60l/4WrOC0Vz+9nCOqm8dPCxygS5ZC6rrp+CFk5FOFueA+X85jbRI=
