@@ -1,3 +1,4 @@
+<!doctype html>
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../paper-dialog/paper-dialog.html">
 <link rel="import" href="../iron-icons/iron-icons.html">
@@ -37,7 +38,7 @@ A material design modal [bottom sheet](https://www.google.com/design/spec/compon
 			}
 		</style>
 
-		<paper-dialog id="dialog" class="dialog" with-backdrop model=[[model]]>
+		<paper-dialog id="dialog" class="dialog" with-backdrop model="[[model]]">
 			<div class="content">
 				<content id="items"></content>
 				<paper-bottom-sheet-item id="cancel" text="[[cancelText]]" icon="icons:close" on-tap="close"></paper-bottom-sheet-item>
@@ -66,7 +67,7 @@ A material design modal [bottom sheet](https://www.google.com/design/spec/compon
 				type: String,
 				value: 'Cancel'
 			},
-			
+
 			/**
 			 * True if the bottom sheet acts like a modal dialog (e.g. can't be closed by clicking outside)
 			 */

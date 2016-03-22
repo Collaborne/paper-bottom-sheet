@@ -1,3 +1,4 @@
+<!doctype html>
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../iron-icon/iron-icon.html">
 <link rel="import" href="../iron-icons/iron-icons.html">
@@ -28,7 +29,7 @@ An item in a material design modal [bottom sheet](https://www.google.com/design/
 				background: white;
 				position: relative;
 			}
-			
+
 			:host[warning] {
 				color: var(--paper-red-900);
 			}
@@ -36,7 +37,7 @@ An item in a material design modal [bottom sheet](https://www.google.com/design/
 
 		<paper-icon-item class="item">
 			<paper-ripple fit></paper-ripple>
-			<iron-icon icon=[[icon]] item-icon></iron-icon>
+			<iron-icon icon="[[icon]]" item-icon></iron-icon>
 			<span>[[text]]</span>
 		</paper-icon-item>
 	</template>
@@ -54,7 +55,7 @@ An item in a material design modal [bottom sheet](https://www.google.com/design/
 			 * Text for the item
 			 */
 			text: String,
-			
+
 			/**
 			 * Icon ID for the item. The icon will be passed to [`iron-icon`](https://elements.polymer-project.org/elements/iron-icon). See for [options](https://elements.polymer-project.org/elements/iron-icons?view=demo:demo/index.html&active=iron-icons).
 			 */
@@ -62,7 +63,7 @@ An item in a material design modal [bottom sheet](https://www.google.com/design/
 				type: String,
 				value: 'icons:check'
 			},
-			
+
 			/**
 			 * True if the item is a warning
 			 */
