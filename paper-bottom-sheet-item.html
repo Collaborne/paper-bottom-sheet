@@ -1,5 +1,6 @@
 <!doctype html>
 <link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../iron-icon/iron-icon.html">
 <link rel="import" href="../iron-icons/iron-icons.html">
 <link rel="import" href="../paper-item/paper-icon-item.html">
@@ -24,6 +25,11 @@ An item in a material design modal [bottom sheet](https://www.google.com/design/
 
 	<template>
 		<style>
+			:host {
+				/** Vertically center content in IE 11 */
+				@apply(--layout-vertical);
+			}
+
 			.item {
 				margin: 0;
 				background: white;
