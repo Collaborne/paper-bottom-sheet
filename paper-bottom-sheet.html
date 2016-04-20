@@ -40,10 +40,10 @@ A material design modal [bottom sheet](https://www.google.com/design/spec/compon
 			}
 		</style>
 
-		<paper-dialog id="dialog" class="dialog" animation-config="{{_dialogAnimationConfig}}" with-backdrop model="[[model]]" on-neon-animation-finish="_attemptRemoval">
+		<paper-dialog id="dialog" class="dialog" animation-config="{{_dialogAnimationConfig}}" with-backdrop modal="[[modal]]" on-neon-animation-finish="_attemptRemoval">
 			<div class="content">
 				<content id="items"></content>
-				<paper-bottom-sheet-item id="cancel" text="[[cancelText]]" icon="icons:close" on-tap="close"></paper-bottom-sheet-item>
+				<paper-bottom-sheet-item hidden$="[[modal]]"id="cancel" text="[[cancelText]]" icon="icons:close" on-tap="close"></paper-bottom-sheet-item>
 			</div>
 		</paper-dialog>
 	</template>
@@ -73,7 +73,7 @@ A material design modal [bottom sheet](https://www.google.com/design/spec/compon
 			/**
 			 * True if the bottom sheet acts like a modal dialog (e.g. can't be closed by clicking outside)
 			 */
-			model: Boolean,
+			modal: Boolean,
 
 			/**
 			 * True if the bottom sheet should slide in from the bottom on entry
