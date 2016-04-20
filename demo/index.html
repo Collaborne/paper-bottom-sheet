@@ -9,12 +9,15 @@
 
 	<body>
 		<template is="dom-bind">
-			<paper-bottom-sheet id="sheet">
+			<paper-bottom-sheet slide="{{sliding}}" modal="{{modalSheet}}" id="sheet">
 				<paper-bottom-sheet-item text="Star" icon="icons:star-border" on-tap="tapStar"></paper-bottom-sheet-item>
 				<paper-bottom-sheet-item text="Delete" icon="icons:delete" warning on-tap="tapDelete"></paper-bottom-sheet-item>
 			</paper-bottom-sheet>
 
 			<button type="button" on-tap="openSheet">Open</button>
+			<input type="checkbox"  on-tap="toggleSliding">Slide in</input>
+			<input type="checkbox" on-tap="toggleModal">Modal bottom sheet</input>
+			
 		</template>
 
 		<script>
@@ -26,7 +29,15 @@
 			scope.tapStar = function() {
 				this.$.sheet.close();
 
-				alert("Stared");
+				alert("Starred");
+			}
+
+			scope.toggleSliding = function() {
+				this.sliding = !this.sliding;
+			}
+
+			scope.toggleModal = function() {
+				this.modalSheet = !this.modalSheet;
 			}
 
 			scope.tapDelete = function() {

@@ -26,7 +26,8 @@
     "paper-item": "PolymerElements/paper-item#^1.0.0",
     "paper-dialog": "PolymerElements/paper-dialog#^1.0.0",
     "paper-ripple": "PolymerElements/paper-ripple#^1.0.0",
-    "paper-styles": "PolymerElements/paper-styles#^1.0.0"
+    "paper-styles": "PolymerElements/paper-styles#^1.0.0",
+    "neon-animation": "PolymerElements/neon-animation#^1.2.0"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",

@@ -3,6 +3,8 @@
 <link rel="import" href="../paper-dialog/paper-dialog.html">
 <link rel="import" href="../iron-icons/iron-icons.html">
 <link rel="import" href="../iron-selector/iron-selectable.html">
+<link rel="import" href="../neon-animation/animations/slide-from-bottom-animation.html">
+<link rel="import" href="../neon-animation/animations/slide-down-animation.html">
 <link rel="import" href="paper-bottom-sheet-item.html">
 
 <!--
@@ -38,10 +40,10 @@ A material design modal [bottom sheet](https://www.google.com/design/spec/compon
 			}
 		</style>
 
-		<paper-dialog id="dialog" class="dialog" with-backdrop model="[[model]]">
+		<paper-dialog id="dialog" class="dialog" animation-config="{{_dialogAnimationConfig}}" with-backdrop modal="[[modal]]" on-iron-overlay-closed="_attemptRemoval">
 			<div class="content">
 				<content id="items"></content>
-				<paper-bottom-sheet-item id="cancel" text="[[cancelText]]" icon="icons:close" on-tap="close"></paper-bottom-sheet-item>
+				<paper-bottom-sheet-item hidden$="[[!modal]]" id="cancel" text="[[cancelText]]" icon="icons:close" on-tap="close"></paper-bottom-sheet-item>
 			</div>
 		</paper-dialog>
 	</template>
@@ -69,12 +71,40 @@ A material design modal [bottom sheet](https://www.google.com/design/spec/compon
 			},
 
 			/**
-			 * True if the bottom sheet acts like a modal dialog (e.g. can't be closed by clicking outside)
+			 * True if the bottom sheet acts like a modal dialog (e.g. can't be closed by clicking outside).
+			 * Note that the "cancel" option will disappear if the dialog is not modal, as the "cancel" option
+			 * will be the user's only method of exit when the bottom sheet is modal.
 			 */
-			model: Boolean
+			modal: {
+				type: Boolean,
+				value: false,
+				reflectToAttribute: true
+			},
+
+			/**
+			 * True if the bottom sheet should slide in from the bottom on entry
+			 */
+			slide: {
+				type: Boolean,
+				value: false,
+				reflectToAttribute: true
+			},
+
+			/**
+			 * The animation config supplied to the included paper-dialog. Will be empty unless "slide"
+			 * is set.
+			 */
+			_dialogAnimationConfig: {
+				type: Object,
+				computed: '_animationConfig(slide)'
+			},
 		},
 
 		// Public methods
+
+		/**
+		 * Open the bottom sheet and append it to the DOM.
+		 */
 		open: function() {
 			Polymer.dom(document.body).appendChild(this);
 
@@ -83,9 +113,46 @@ A material design modal [bottom sheet](https://www.google.com/design/spec/compon
                                 this.$.dialog.open();
                         }.bind(this), 1);
 		},
+		/**
+		 * Close the bottom sheet and remove it from the DOM.
+		 */
 		close: function() {
 			this.$.dialog.close();
-			// Remove the dialog from the DOM
+
+			// Remove the dialog from the DOM if there is no animation
+			if (!this.slide)
+			{ 
+				_attemptRemoval();
+			}
+		},
+
+		// Private methods
+		// Computed property function- changes the animation config of the dialog based on presence of "slide" attr
+		_animationConfig: function(slide)
+		{
+			if (slide == true)
+			{
+				return {
+					'entry': {
+						'name': "slide-from-bottom-animation",
+						'node': this.$.dialog
+					},
+					'exit': {
+						'name': "slide-down-animation",
+						'node': this.$.dialog
+					}
+				};
+			}
+			else
+			{
+				return {};
+			}
+		},
+
+		// Runs when the dialog is closed. Will remove this from the DOM
+		_attemptRemoval: function()
+		{
+			// Remove this element from DOM if there is an animation and the dialog just closed
 			Polymer.dom(this.parentNode).removeChild(this);
 		}
 	});
