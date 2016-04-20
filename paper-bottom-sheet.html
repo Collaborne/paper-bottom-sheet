@@ -43,7 +43,7 @@ A material design modal [bottom sheet](https://www.google.com/design/spec/compon
 		<paper-dialog id="dialog" class="dialog" animation-config="{{_dialogAnimationConfig}}" with-backdrop modal="[[modal]]" on-neon-animation-finish="_attemptRemoval">
 			<div class="content">
 				<content id="items"></content>
-				<paper-bottom-sheet-item hidden$="[[modal]]"id="cancel" text="[[cancelText]]" icon="icons:close" on-tap="close"></paper-bottom-sheet-item>
+				<paper-bottom-sheet-item hidden$="[[!modal]]" id="cancel" text="[[cancelText]]" icon="icons:close" on-tap="close"></paper-bottom-sheet-item>
 			</div>
 		</paper-dialog>
 	</template>
@@ -71,9 +71,15 @@ A material design modal [bottom sheet](https://www.google.com/design/spec/compon
 			},
 
 			/**
-			 * True if the bottom sheet acts like a modal dialog (e.g. can't be closed by clicking outside)
+			 * True if the bottom sheet acts like a modal dialog (e.g. can't be closed by clicking outside).
+			 * Note that the "cancel" option will disappear if the dialog is not modal, as the "cancel" option
+			 * will be the user's only method of exit when the bottom sheet is modal.
 			 */
-			modal: Boolean,
+			modal: {
+				type: Boolean,
+				value: false,
+				reflectToAttribute: true
+			},
 
 			/**
 			 * True if the bottom sheet should slide in from the bottom on entry
