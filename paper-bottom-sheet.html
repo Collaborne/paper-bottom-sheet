@@ -40,7 +40,7 @@ A material design modal [bottom sheet](https://www.google.com/design/spec/compon
 			}
 		</style>
 
-		<paper-dialog id="dialog" class="dialog" animation-config="{{_dialogAnimationConfig}}" with-backdrop modal="[[modal]]" on-neon-animation-finish="_attemptRemoval">
+		<paper-dialog id="dialog" class="dialog" animation-config="{{_dialogAnimationConfig}}" with-backdrop modal="[[modal]]" on-iron-overlay-closed="_attemptRemoval">
 			<div class="content">
 				<content id="items"></content>
 				<paper-bottom-sheet-item hidden$="[[!modal]]" id="cancel" text="[[cancelText]]" icon="icons:close" on-tap="close"></paper-bottom-sheet-item>
@@ -122,7 +122,7 @@ A material design modal [bottom sheet](https://www.google.com/design/spec/compon
 			// Remove the dialog from the DOM if there is no animation
 			if (!this.slide)
 			{ 
-				Polymer.dom(this.parentNode).removeChild(this); 
+				_attemptRemoval();
 			}
 		},
 
@@ -130,7 +130,6 @@ A material design modal [bottom sheet](https://www.google.com/design/spec/compon
 		// Computed property function- changes the animation config of the dialog based on presence of "slide" attr
 		_animationConfig: function(slide)
 		{
-			console.log("config changed");
 			if (slide == true)
 			{
 				return {
@@ -150,14 +149,11 @@ A material design modal [bottom sheet](https://www.google.com/design/spec/compon
 			}
 		},
 
-		// Runs when the dialog animation completes. Will remove this from the DOM if the dialog was just closed.
+		// Runs when the dialog is closed. Will remove this from the DOM
 		_attemptRemoval: function()
 		{
 			// Remove this element from DOM if there is an animation and the dialog just closed
-			if (this.slide && !this.$.dialog.opened)
-			{
-				Polymer.dom(this.parentNode).removeChild(this);
-			}
+			Polymer.dom(this.parentNode).removeChild(this);
 		}
 	});
 
