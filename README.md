@@ -1,4 +1,4 @@
-_[Demo and API Docs](http://emanguy.github.io/paper-bottom-sheet)_
+_[Demo and API Docs](http://collaborne.github.io/paper-bottom-sheet)_
 
 
 paper-bottom-sheet [![Bower version](https://badge.fury.io/bo/paper-bottom-sheet.svg)](http://badge.fury.io/bo/paper-bottom-sheet) [![Travis state](https://travis-ci.org/Collaborne/paper-bottom-sheet.svg?branch=master)](https://travis-ci.org/Collaborne/paper-bottom-sheet)
@@ -32,4 +32,3 @@ To use this element:
     WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
     License for the specific language governing permissions and limitations under
     the License.
-    
