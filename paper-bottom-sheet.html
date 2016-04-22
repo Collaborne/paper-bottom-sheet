@@ -131,8 +131,15 @@ A material design modal [bottom sheet](https://www.google.com/design/spec/compon
 			if (!slide) {
 				return {};
 			}
+
 			return {
+				entry: {
+					name: 'slide-from-bottom-animation',
+					node: this.$.dialog
 				},
+				exit: {
+					name: 'slide-down-animation',
+					node: this.$.dialog
 				}
 			};
 		},
