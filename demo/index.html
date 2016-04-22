@@ -10,7 +10,7 @@
 	<body>
 		<template is="dom-bind">
 
-			<paper-bottom-sheet slide="{{sliding}}" modal="{{modalSheet}}" id="sheet">
+			<paper-bottom-sheet slide="{{sliding}}" modal="{{modalSheet}}" with-backdrop="[[withBackdrop]]" id="sheet">
 				<paper-bottom-sheet-item text="Star" icon="icons:star-border" on-tap="tapStar"></paper-bottom-sheet-item>
 				<paper-bottom-sheet-item text="Delete" icon="icons:delete" warning on-tap="tapDelete"></paper-bottom-sheet-item>
 			</paper-bottom-sheet>
@@ -18,11 +18,13 @@
 			<button type="button" on-tap="openSheet">Open</button>
 			<input type="checkbox"  on-tap="toggleSliding">Slide in</input>
 			<input type="checkbox" on-tap="toggleModal">Modal bottom sheet</input>
+			<input type="checkbox" on-tap="toggleBackdrop">Open without backdrop</input>
 
 		</template>
 
 		<script>
 			var scope = document.querySelector("template[is=dom-bind]");
+			scope.withBackdrop = true;
 			scope.openSheet = function() {
 				this.$.sheet.open();
 		    }
@@ -39,6 +41,10 @@
 
 			scope.toggleModal = function() {
 				this.modalSheet = !this.modalSheet;
+			}
+
+			scope.toggleBackdrop = function() {
+				this.withBackdrop = !this.withBackdrop;
 			}
 
 			scope.tapDelete = function() {

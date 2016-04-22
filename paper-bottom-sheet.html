@@ -40,7 +40,7 @@ A material design modal [bottom sheet](https://www.google.com/design/spec/compon
 			}
 		</style>
 
-		<paper-dialog id="dialog" class="dialog" animation-config="{{_dialogAnimationConfig}}" with-backdrop modal="[[modal]]" on-iron-overlay-closed="_attemptRemoval">
+		<paper-dialog id="dialog" class="dialog" animation-config="{{_dialogAnimationConfig}}" modal="[[modal]]" with-backdrop="[[withBackdrop]]" on-iron-overlay-closed="_attemptRemoval">
 			<div class="content">
 				<content id="items"></content>
 				<paper-bottom-sheet-item hidden$="[[!modal]]" id="cancel" text="[[cancelText]]" icon="icons:close" on-tap="close"></paper-bottom-sheet-item>
@@ -87,6 +87,16 @@ A material design modal [bottom sheet](https://www.google.com/design/spec/compon
 			slide: {
 				type: Boolean,
 				value: false,
+				reflectToAttribute: true
+			},
+
+			/**
+			 * True if the bottom sheet is opened with backdrop
+			 * @default true
+			 */
+			withBackdrop: {
+				type: Boolean,
+				value: true,
 				reflectToAttribute: true
 			},
 
