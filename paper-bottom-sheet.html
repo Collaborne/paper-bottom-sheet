@@ -125,8 +125,11 @@ A material design modal [bottom sheet](https://www.google.com/design/spec/compon
 			}
 		},
 
-		// Private methods
-		// Computed property function- changes the animation config of the dialog based on presence of "slide" attr
+		/**
+		 * Computed property function- changes the animation config of the dialog based on presence of "slide" attr
+		 * @param  {Boolean} slide True if the bottom sheet should slide in
+		 * @return {Object}       Animation config
+		 */
 		_animationConfig: function(slide) {
 			if (!slide) {
 				return {};
@@ -144,7 +147,9 @@ A material design modal [bottom sheet](https://www.google.com/design/spec/compon
 			};
 		},
 
-		// Runs when the dialog is closed. Will remove this from the DOM
+		/**
+		 * Runs when the dialog is closed. Will remove this from the DOM
+		 */
 		_attemptRemoval: function() {
 			// Remove this element from DOM if there is an animation and the dialog just closed
 			Polymer.dom(this.parentNode).removeChild(this);
