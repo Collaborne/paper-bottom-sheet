@@ -128,20 +128,13 @@ A material design modal [bottom sheet](https://www.google.com/design/spec/compon
 		// Private methods
 		// Computed property function- changes the animation config of the dialog based on presence of "slide" attr
 		_animationConfig: function(slide) {
-			if (slide == true) {
-				return {
-					'entry': {
-						'name': "slide-from-bottom-animation",
-						'node': this.$.dialog
-					},
-					'exit': {
-						'name': "slide-down-animation",
-						'node': this.$.dialog
-					}
-				};
-			} else {
+			if (!slide) {
 				return {};
 			}
+			return {
+				},
+				}
+			};
 		},
 
 		// Runs when the dialog is closed. Will remove this from the DOM
