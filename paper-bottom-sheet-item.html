@@ -16,6 +16,7 @@ An item in a material design modal [bottom sheet](https://www.google.com/design/
 ```html
 <paper-bottom-sheet-item text="Star" icon="icons:star-border" on-tap="star"></paper-bottom-sheet-item>
 <paper-bottom-sheet-item text="Delete" icon="icons:delete" warning on-tap="delete"></paper-bottom-sheet-item>
+<paper-bottom-sheet-item text="Fullscreen" icon="icons:fullscreen" disabled"></paper-bottom-sheet-item>
 ```
 
 
@@ -42,7 +43,7 @@ An item in a material design modal [bottom sheet](https://www.google.com/design/
 			}
 		</style>
 
-		<paper-icon-item class="item">
+		<paper-icon-item class="item" disabled$="[[disabled]]">
 			<paper-ripple fit></paper-ripple>
 			<iron-icon icon="[[icon]]" item-icon></iron-icon>
 			<span>[[text]]</span>
@@ -75,6 +76,15 @@ An item in a material design modal [bottom sheet](https://www.google.com/design/
 			 * True if the item is a warning
 			 */
 			warning: {
+				type: Boolean,
+				value: false,
+				reflectToAttribute: true
+			},
+
+			/**
+			 * True if the item is disabled
+			 */
+			disabled: {
 				type: Boolean,
 				value: false,
 				reflectToAttribute: true
