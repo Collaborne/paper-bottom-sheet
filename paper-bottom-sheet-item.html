@@ -29,6 +29,7 @@ An item in a material design modal [bottom sheet](https://www.google.com/design/
 			:host {
 				/** Vertically center content in IE 11 */
 				@apply(--layout-vertical);
+				@apply(--paper-bottom-sheet-item);
 			}
 
 			.item {
@@ -36,6 +37,7 @@ An item in a material design modal [bottom sheet](https://www.google.com/design/
 				background: white;
 				position: relative;
 				cursor: pointer;
+				@apply(--paper-bottom-sheet-item-item);
 			}
 
 			:host[warning] {
