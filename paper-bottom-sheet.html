@@ -1,4 +1,5 @@
-<!doctype html>
+
+ctype html>
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../paper-dialog/paper-dialog.html">
 <link rel="import" href="../iron-icons/iron-icons.html">
@@ -28,7 +29,7 @@ A material design modal [bottom sheet](https://www.google.com/design/spec/compon
 			.dialog {
 				background-color: rgba(0,0,0,0.6)!important;
 				margin: 0!important;
-				@apply(--layout-fixed-bottom);
+				@apply --layout-fixed-bottom;
 			}
 
 			.content {
@@ -38,11 +39,15 @@ A material design modal [bottom sheet](https://www.google.com/design/spec/compon
 				margin: 0 !important;
 				padding: 0 !important;
 			}
+
+			[hidden] {
+				display: none;
+			}
 		</style>
 
 		<paper-dialog id="dialog" class="dialog" animation-config="{{_dialogAnimationConfig}}" modal="[[modal]]" with-backdrop="[[withBackdrop]]" on-iron-overlay-closed="_attemptRemoval" auto-fit-on-attach>
 			<div class="content">
-				<content id="items"></content>
+				<slot id="items"></slot>
 				<paper-bottom-sheet-item hidden$="[[!modal]]" id="cancel" text="[[cancelText]]" icon="icons:close" on-tap="close"></paper-bottom-sheet-item>
 			</div>
 		</paper-dialog>
@@ -169,3 +174,4 @@ A material design modal [bottom sheet](https://www.google.com/design/spec/compon
 })();
 
 </script>
+
