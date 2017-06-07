@@ -9,6 +9,7 @@
 		<script src="../../web-component-tester/browser.js"></script>
 		<script src="../../test-fixture/test-fixture-mocha.js"></script>
 
+		<link rel="import" href="../../polymer/polymer.html">
 		<link rel="import" href="../paper-bottom-sheet.html">
 		<link rel="import" href="../paper-bottom-sheet-item.html">
 		<link rel="import" href="../../test-fixture/test-fixture.html">
@@ -31,34 +32,36 @@
 		</test-fixture>
 
 		<script>
-			suite('<paper-bottom-sheet>', function() {
-				suite('basic behavior', function() {
-					var items;
+			window.addEventListener('WebComponentsReady', function() {
+				suite('<paper-bottom-sheet>', function() {
+					suite('basic behavior', function() {
+						var items;
 
-					setup(function() {
-						var element = fixture('TrivialElement');
-						items = element.items;
+						setup(function() {
+							var element = fixture('TrivialElement');
+							items = element.querySelectorAll('paper-bottom-sheet-item');
+						});
+
+						test('adds custom items', function() {
+							expect(items.length).to.be.eql(2);
+						});
+
+						test('adds custom items in right order', function() {
+							expect(items[0].getAttribute("text")).to.be.eql("Star");
+							expect(items[1].getAttribute("text")).to.be.eql("Delete");
+						});
 					});
 
-					test('adds custom items', function() {
-						expect(items.length).to.be.eql(2);
-					});
+					suite('localization behavior', function() {
+						var element;
 
-					test('adds custom items in right order', function() {
-						expect(items[0].getAttribute("text")).to.be.eql("Star");
-						expect(items[1].getAttribute("text")).to.be.eql("Delete");
-					});
-				});
+						setup(function() {
+							element = fixture('ElementWithCustomCancelText');
+						});
 
-				suite('localization behavior', function() {
-					var element;
-
-					setup(function() {
-						element = fixture('ElementWithCustomCancelText');
-					});
-
-					test('sets cancel based on cancel-text attribute', function() {
-						expect(element.$.cancel.text).to.be.eql("Abbrechen");
+						test('sets cancel based on cancel-text attribute', function() {
+							expect(element.$.cancel.text).to.be.eql("Abbrechen");
+						});
 					});
 				});
 			});
