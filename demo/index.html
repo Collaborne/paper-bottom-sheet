@@ -2,56 +2,61 @@
 <html>
 	<head>
 		<title>Demo</title>
-	    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+		<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+		<link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+		<link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+		<link rel="import" href="../../paper-button/paper-button.html">
+		<link rel="import" href="../../paper-checkbox/paper-checkbox.html">
+		<!-- @see https://github.com/PolymerElements/neon-animation/issues/226#issuecomment-290930385 -->
+		<link rel="import" href="../../neon-animation/web-animations.html">
 		<link rel="import" href="../paper-bottom-sheet.html">
 		<link rel="import" href="../paper-bottom-sheet-item.html">
 	</head>
 
 	<body>
-		<template is="dom-bind">
+		<demo-snippet class="centered-demo">
+			<template>
+				<dom-bind>
+					<template>
+						<custom-style>
+							<style include="demo-pages-shared-styles"></style>
+						</custom-style>
 
-			<paper-bottom-sheet slide="{{sliding}}" modal="{{modalSheet}}" with-backdrop="[[withBackdrop]]" id="sheet">
-				<paper-bottom-sheet-item text="Star" icon="icons:star-border" on-tap="tapStar"></paper-bottom-sheet-item>
-				<paper-bottom-sheet-item text="Delete" icon="icons:delete" warning on-tap="tapDelete"></paper-bottom-sheet-item>
-			</paper-bottom-sheet>
+						<paper-bottom-sheet slide="{{sliding}}" modal="{{modalSheet}}" with-backdrop="[[withBackdrop]]" id="sheet">
+							<paper-bottom-sheet-item text="Star" icon="icons:star-border" on-tap="tapStar"></paper-bottom-sheet-item>
+							<paper-bottom-sheet-item text="Delete" icon="icons:delete" warning on-tap="tapDelete"></paper-bottom-sheet-item>
+						</paper-bottom-sheet>
 
-			<button type="button" on-tap="openSheet">Open</button>
-			<input type="checkbox"  on-tap="toggleSliding">Slide in</input>
-			<input type="checkbox" on-tap="toggleModal">Modal bottom sheet</input>
-			<input type="checkbox" on-tap="toggleBackdrop">Open without backdrop</input>
+						<paper-checkbox checked="{{sliding}}">Slide in</paper-checkbox><br>
+						<paper-checkbox checked="{{modalSheet}}">Modal bottom sheet</paper-checkbox><br>
+						<paper-checkbox checked="{{withBackdrop}}">Open without backdrop</paper-checkbox><br>
+						<br>
+						<paper-button on-tap="openSheet" raised>Open</paper-button>
 
-		</template>
+						<script>
+							var scope = document.querySelector("dom-bind");
+							scope.withBackdrop = true;
+							scope.openSheet = function() {
+								this.$.sheet.open();
+							}
 
-		<script>
-			var scope = document.querySelector("template[is=dom-bind]");
-			scope.withBackdrop = true;
-			scope.openSheet = function() {
-				this.$.sheet.open();
-		    }
+							scope.tapStar = function() {
+								this.$.sheet.close();
 
-			scope.tapStar = function() {
-				this.$.sheet.close();
+								alert("Starred");
+							}
 
-				alert("Starred");
-			}
+							scope.tapDelete = function() {
+								this.$.sheet.close();
 
-			scope.toggleSliding = function() {
-				this.sliding = !this.sliding;
-			}
+								alert("Deleted");
+							}
+						</script>
 
-			scope.toggleModal = function() {
-				this.modalSheet = !this.modalSheet;
-			}
+					</template>
+				</dom-bind>
+			</template>
+		</demo-snippet>
 
-			scope.toggleBackdrop = function() {
-				this.withBackdrop = !this.withBackdrop;
-			}
-
-			scope.tapDelete = function() {
-				this.$.sheet.close();
-
-				alert("Deleted");
-			}
-		</script>
 	</body>
 </html>
