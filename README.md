@@ -11,19 +11,6 @@ To use this element:
 
 `bower install paper-bottom-sheet`
 
-<!--
-```
-<custom-element-demo>
-  <template>
-    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="../iron-icons/iron-icons.html">
-    <link rel="import" href="paper-bottom-sheet.html">
-    <link rel="import" href="paper-bottom-sheet-item.html">
-    <next-code-block></next-code-block>
-  </template>
-</custom-element-demo>
-```
--->
 ```html
 <paper-bottom-sheet slide with-backdrop>
     <paper-bottom-sheet-item text="Star" icon="icons:star-border" ></paper-bottom-sheet-item>
