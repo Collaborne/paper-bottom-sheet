@@ -32,16 +32,20 @@ An item in a material design modal [bottom sheet](https://www.google.com/design/
 				@apply --paper-bottom-sheet-item;
 			}
 
+			:host([hidden]) {
+				display: none!important;
+			}
+
+			:host([warning]) {
+				color: var(--paper-red-900);
+			}
+
 			.item {
 				margin: 0;
 				background: white;
 				position: relative;
 				cursor: pointer;
 				@apply --paper-bottom-sheet-item-item;
-			}
-
-			:host([warning]) {
-				color: var(--paper-red-900);
 			}
 		</style>
 
@@ -90,7 +94,16 @@ An item in a material design modal [bottom sheet](https://www.google.com/design/
 				type: Boolean,
 				value: false,
 				reflectToAttribute: true
-			}
+			},
+
+			/**
+			 * True if the item isn't visible
+			 */
+			hidden: {
+				type: Boolean,
+				value: false,
+				reflectToAttribute: true
+			},
 		}
 	});
 
