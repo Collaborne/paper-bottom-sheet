@@ -45,7 +45,7 @@ A material design modal [bottom sheet](https://www.google.com/design/spec/compon
 			}
 		</style>
 
-		<paper-dialog id="dialog" class="dialog" animation-config="{{_dialogAnimationConfig}}" modal="[[modal]]" with-backdrop="[[withBackdrop]]" on-iron-overlay-closed="_attemptRemoval" auto-fit-on-attach>
+		<paper-dialog id="dialog" class="dialog" animation-config="{{_dialogAnimationConfig}}" no-cancel-on-esc-key="[[noCancelOnEscKey]]" no-cancel-on-outside-click="[[noCancelOnOutsideClick]]" modal="[[modal]]" with-backdrop="[[withBackdrop]]" on-iron-overlay-closed="_attemptRemoval" auto-fit-on-attach>
 			<div class="content">
 				<slot id="items"></slot>
 				<paper-bottom-sheet-item hidden$="[[!modal]]" id="cancel" text="[[cancelText]]" icon="icons:close" on-tap="close"></paper-bottom-sheet-item>
@@ -103,6 +103,22 @@ A material design modal [bottom sheet](https://www.google.com/design/spec/compon
 				type: Boolean,
 				value: true,
 				reflectToAttribute: true
+			},
+
+			/**
+			* Set to true to disable canceling the overlay with the ESC key.
+			*/
+			noCancelOnEscKey: {
+				type: Boolean, 
+				value: false
+			},
+
+			/**
+			* Set to true to disable canceling the overlay by clicking outside it.
+			*/
+			noCancelOnOutsideClick: {
+				type: Boolean, 
+				value: false
 			},
 
 			/**
