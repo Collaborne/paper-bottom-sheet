@@ -38,6 +38,8 @@ A material design modal [bottom sheet](https://www.google.com/design/spec/compon
 				bottom: 0;
 				margin: 0 !important;
 				padding: 0 !important;
+				padding-bottom: constant(safe-area-inset-bottom)!important; /* iOS 11.0 */
+				padding-bottom: env(safe-area-inset-bottom)!important; /* iOS 11.2 */
 			}
 
 			[hidden] {
