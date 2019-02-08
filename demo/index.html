@@ -2,15 +2,17 @@
 <html>
 	<head>
 		<title>Demo</title>
-		<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-		<link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
-		<link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
-		<link rel="import" href="../../paper-button/paper-button.html">
-		<link rel="import" href="../../paper-checkbox/paper-checkbox.html">
 		<!-- @see https://github.com/PolymerElements/neon-animation/issues/226#issuecomment-290930385 -->
-		<link rel="import" href="../../neon-animation/web-animations.html">
-		<link rel="import" href="../paper-bottom-sheet.html">
-		<link rel="import" href="../paper-bottom-sheet-item.html">
+		<script src="/node_modules/web-animations-js/web-animations-next-lite.min.js"></script>
+
+		<script type="module">
+			import '@polymer/iron-demo-helpers/demo-pages-shared-styles.js';
+			import '@polymer/iron-demo-helpers/demo-snippet.js';
+			import '@polymer/paper-button/paper-button.js';
+			import '@polymer/paper-checkbox/paper-checkbox.js';
+			import '../paper-bottom-sheet.js';
+			import '../paper-bottom-sheet-item.js';
+		</script>
 	</head>
 
 	<body>
@@ -29,34 +31,30 @@
 
 						<paper-checkbox checked="{{sliding}}">Slide in</paper-checkbox><br>
 						<paper-checkbox checked="{{modalSheet}}">Modal bottom sheet</paper-checkbox><br>
-						<paper-checkbox checked="{{withBackdrop}}">Open without backdrop</paper-checkbox><br>
+						<paper-checkbox checked="{{withBackdrop}}">With backdrop</paper-checkbox><br>
 						<br>
 						<paper-button on-tap="openSheet" raised>Open</paper-button>
 
-						<script>
+						<script type="module">
 							var scope = document.querySelector("dom-bind");
 							scope.withBackdrop = true;
-							scope.openSheet = function() {
-								this.$.sheet.open();
-							}
+							scope.openSheet = () => scope.$.sheet.open();
 
-							scope.tapStar = function() {
-								this.$.sheet.close();
+							scope.tapStar = () => {
+								scope.$.sheet.close();
 
 								alert("Starred");
-							}
+							};
 
-							scope.tapDelete = function() {
-								this.$.sheet.close();
+							scope.tapDelete = () => {
+								scope.$.sheet.close();
 
 								alert("Deleted");
-							}
+							};
 						</script>
-
 					</template>
 				</dom-bind>
 			</template>
 		</demo-snippet>
-
 	</body>
 </html>
