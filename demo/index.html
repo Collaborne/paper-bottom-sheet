@@ -20,9 +20,7 @@
 			<template>
 				<dom-bind>
 					<template>
-						<custom-style>
-							<style include="demo-pages-shared-styles"></style>
-						</custom-style>
+						<style include="demo-pages-shared-styles"></style>
 
 						<paper-bottom-sheet slide="{{sliding}}" modal="{{modalSheet}}" with-backdrop="[[withBackdrop]]" id="sheet">
 							<paper-bottom-sheet-item text="Star" icon="icons:star-border" on-tap="tapStar"></paper-bottom-sheet-item>
@@ -35,7 +33,7 @@
 						<br>
 						<paper-button on-tap="openSheet" raised>Open</paper-button>
 
-						<script type="module">
+						<script>
 							var scope = document.querySelector('dom-bind');
 							scope.withBackdrop = true;
 							scope.openSheet = () => scope.$.sheet.open();
