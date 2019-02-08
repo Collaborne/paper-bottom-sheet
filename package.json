@@ -36,6 +36,7 @@
     "@polymer/paper-checkbox": "^3.0.0",
     "eslint": "^5.13.0",
     "eslint-config-collaborne": "^1.5.0",
+    "polymer-cli": "^1.9.6",
     "web-animations-js": "^2.3.1"
   }
 }
