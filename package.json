@@ -1,6 +1,6 @@
 {
   "name": "@collaborne/paper-bottom-sheet",
-  "version": "2.1.1",
+  "version": "3.0.0",
   "description": "Web component providing a material design modal bottom sheet (Polymer)",
   "keywords": [
     "web-components",
