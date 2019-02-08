@@ -36,20 +36,20 @@
 						<paper-button on-tap="openSheet" raised>Open</paper-button>
 
 						<script type="module">
-							var scope = document.querySelector("dom-bind");
+							var scope = document.querySelector('dom-bind');
 							scope.withBackdrop = true;
 							scope.openSheet = () => scope.$.sheet.open();
 
 							scope.tapStar = () => {
 								scope.$.sheet.close();
 
-								alert("Starred");
+								alert('Starred');
 							};
 
 							scope.tapDelete = () => {
 								scope.$.sheet.close();
 
-								alert("Deleted");
+								alert('Deleted');
 							};
 						</script>
 					</template>
