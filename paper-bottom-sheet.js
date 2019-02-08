@@ -70,12 +70,22 @@ class PaperBottomSheet extends mixinBehaviors([IronSelectableBehavior], PolymerE
 
 	static get properties() {
 		return {
+
+			/**
+			 * The animation config supplied to the included paper-dialog. Will be empty unless "slide"
+			 * is set.
+			 */
+			_dialogAnimationConfig: {
+				computed: '_animationConfig(slide)',
+				type: Object,
+			},
+
 			/**
 			 * Text for the cancel item. This can be used to localize the item
 			 */
 			cancelText: {
 				type: String,
-				value: 'Cancel'
+				value: 'Cancel',
 			},
 
 			/**
@@ -84,6 +94,22 @@ class PaperBottomSheet extends mixinBehaviors([IronSelectableBehavior], PolymerE
 			 * will be the user's only method of exit when the bottom sheet is modal.
 			 */
 			modal: {
+				type: Boolean,
+				value: false,
+			},
+
+			/**
+			* Set to true to disable canceling the overlay with the ESC key.
+			*/
+			noCancelOnEscKey: {
+				type: Boolean,
+				value: false,
+			},
+
+			/**
+			* Set to true to disable canceling the overlay by clicking outside it.
+			*/
+			noCancelOnOutsideClick: {
 				type: Boolean,
 				value: false,
 			},
@@ -104,38 +130,12 @@ class PaperBottomSheet extends mixinBehaviors([IronSelectableBehavior], PolymerE
 				type: Boolean,
 				value: true,
 			},
-
-			/**
-			* Set to true to disable canceling the overlay with the ESC key.
-			*/
-			noCancelOnEscKey: {
-				type: Boolean, 
-				value: false
-			},
-
-			/**
-			* Set to true to disable canceling the overlay by clicking outside it.
-			*/
-			noCancelOnOutsideClick: {
-				type: Boolean, 
-				value: false
-			},
-
-			/**
-			 * The animation config supplied to the included paper-dialog. Will be empty unless "slide"
-			 * is set.
-			 */
-			_dialogAnimationConfig: {
-				type: Object,
-				computed: '_animationConfig(slide)'
-			},
 		};
 	}
 
-	// Public methods
-
 	/**
 	 * Open the bottom sheet and append it to the DOM.
+	 * @returns {void}
 	 */
 	open() {
 		document.body.appendChild(this);
@@ -146,6 +146,7 @@ class PaperBottomSheet extends mixinBehaviors([IronSelectableBehavior], PolymerE
 
 	/**
 	 * Close the bottom sheet and remove it from the DOM.
+	 * @returns {void}
 	 */
 	close() {
 		this.$.dialog.close();
@@ -159,7 +160,7 @@ class PaperBottomSheet extends mixinBehaviors([IronSelectableBehavior], PolymerE
 	/**
 	 * Computed property function- changes the animation config of the dialog based on presence of "slide" attr
 	 * @param	{Boolean} slide True if the bottom sheet should slide in
-	 * @return {Object}			 Animation config
+	 * @returns {Object} Animation config
 	 */
 	_animationConfig(slide) {
 		if (!slide) {
@@ -180,6 +181,7 @@ class PaperBottomSheet extends mixinBehaviors([IronSelectableBehavior], PolymerE
 
 	/**
 	 * Runs when the dialog is closed. Will remove this from the DOM
+	 * @returns {void}
 	 */
 	_attemptRemoval() {
 		// Remove this element from DOM if there is an animation and the dialog just closed

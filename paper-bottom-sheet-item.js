@@ -57,28 +57,6 @@ class PaperBottomSheetItem extends PolymerElement {
 
 	static get properties() {
 		return {
-			/**
-			 * Text for the item
-			 */
-			text: String,
-
-			/**
-			 * Icon ID for the item. The icon will be passed to [`iron-icon`](https://elements.polymer-project.org/elements/iron-icon).
-			 * See for [options](https://elements.polymer-project.org/elements/iron-icons?view=demo:demo/index.html&active=iron-icons).
-			 */
-			icon: {
-				type: String,
-				value: 'icons:check'
-			},
-
-			/**
-			 * True if the item is a warning
-			 */
-			warning: {
-				type: Boolean,
-				value: false,
-				reflectToAttribute: true
-			},
 
 			/**
 			 * True if the item is disabled
@@ -86,16 +64,38 @@ class PaperBottomSheetItem extends PolymerElement {
 			disabled: {
 				type: Boolean,
 				value: false,
-				reflectToAttribute: true
 			},
 
 			/**
 			 * True if the item isn't visible
 			 */
 			hidden: {
+				reflectToAttribute: true,
 				type: Boolean,
 				value: false,
-				reflectToAttribute: true
+			},
+
+			/**
+			 * Icon ID for the item. The icon will be passed to [`iron-icon`](https://elements.polymer-project.org/elements/iron-icon).
+			 * See for [options](https://elements.polymer-project.org/elements/iron-icons?view=demo:demo/index.html&active=iron-icons).
+			 */
+			icon: {
+				type: String,
+				value: 'icons:check',
+			},
+
+			/**
+			 * Text for the item
+			 */
+			text: String,
+
+			/**
+			 * True if the item is a warning
+			 */
+			warning: {
+				reflectToAttribute: true,
+				type: Boolean,
+				value: false,
 			},
 		};
 	}
