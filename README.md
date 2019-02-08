@@ -9,7 +9,7 @@ Items can be added with the element `paper-bottom-sheet`. The last item in the s
 # Installation
 
 ```bash
-npm install --save polymer-password-strength
+npm install --save @collaborne/paper-bottom-sheet
 ```
 
 # Usage
