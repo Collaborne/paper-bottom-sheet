@@ -133,11 +133,23 @@ class PaperBottomSheet extends mixinBehaviors([IronSelectableBehavior], PolymerE
 		};
 	}
 
+	static get listeners() {
+		return {
+			// This event is fired when the animation finishes
+			'neon-animation-finish': '_onNeonAnimationFinish'
+		};
+	}
+
 	/**
 	 * Open the bottom sheet and append it to the DOM.
 	 * @returns {void}
 	 */
 	open() {
+		if (!this._placeHolder) {
+			this._placeHolder = document.createElement('div');
+			this.parentNode.insertBefore(this._placeHolder, this);
+		}
+
 		document.body.appendChild(this);
 
 		// Wait until dialog is added to the DOM (required for Safari)
@@ -149,6 +161,10 @@ class PaperBottomSheet extends mixinBehaviors([IronSelectableBehavior], PolymerE
 	 * @returns {void}
 	 */
 	close() {
+		if (this._placeHolder) {
+			this._placeHolder.style.display = 'none';
+		}
+
 		this.$.dialog.close();
 
 		// Remove the dialog from the DOM if there is no animation
@@ -187,6 +203,16 @@ class PaperBottomSheet extends mixinBehaviors([IronSelectableBehavior], PolymerE
 		// Remove this element from DOM if there is an animation and the dialog just closed
 		if (this.parentNode) {
 			this.parentNode.removeChild(this);
+		}
+	}
+
+	_onNeonAnimationFinish() {
+		if (this._placeHolder) {
+			const height = Array.from(this.$.dialog.children).reduce((total, x) => total + x.offsetHeight, 0);
+			this._placeHolder.style.height = `${height}px`;
+			this._placeHolder.style.width = '100%';
+			this._placeHolder.style.display = 'block';
+			window.scrollBy(0, height);
 		}
 	}
 }
