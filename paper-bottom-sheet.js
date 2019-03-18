@@ -89,6 +89,22 @@ class PaperBottomSheet extends mixinBehaviors([IronSelectableBehavior], PolymerE
 			},
 
 			/**
+			 * CSS value for margin of the sheet. Leave this empty to use full-width
+			 */
+			margin: {
+				observer: '_marginChanged',
+				type: String
+			},
+
+			/**
+			 * CSS value for max-width of the sheet. Leave this empty to use full-width
+			 */
+			maxWidth: {
+				observer: '_maxWidthChanged',
+				type: String
+			},
+
+			/**
 			 * True if the bottom sheet acts like a modal dialog (e.g. can't be closed by clicking outside).
 			 * Note that the "cancel" option will disappear if the dialog is not modal, as the "cancel" option
 			 * will be the user's only method of exit when the bottom sheet is modal.
@@ -203,6 +219,18 @@ class PaperBottomSheet extends mixinBehaviors([IronSelectableBehavior], PolymerE
 		// Remove this element from DOM if there is an animation and the dialog just closed
 		if (this.parentNode) {
 			this.parentNode.removeChild(this);
+		}
+	}
+
+	_maxWidthChanged(newValue) {
+		this.$.dialog.style.maxWidth = newValue;
+	}
+
+	_marginChanged(newValue) {
+		if (newValue && newValue.length) {
+			this.$.dialog.style.setProperty('margin', newValue, 'important');
+		} else {
+			this.$.dialog.style.margin = '';
 		}
 	}
 
