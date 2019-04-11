@@ -10,33 +10,43 @@
     "bottom sheet",
     "dialog"
   ],
+  "files": [
+    "dist"
+  ],
   "homepage": "https://github.com/collaborne/paper-bottom-sheet",
   "scripts": {
-    "lint": "eslint . && polymer lint",
-    "test": "npm run lint && echo 'No tests yet'"
+    "build": "node_modules/typescript/bin/tsc",
+    "lint": "tslint -c tslint.json \"src/**/*.ts\"",
+    "test": "npm run lint && echo 'No tests yet'",
+    "prepublish": "npm run lint && npm run build",
+    "start-dev": "node_modules/typescript/bin/tsc --watch & polymer serve"
   },
-  "main": "paper-bottom-sheet.js",
+  "main": "dist/paper-bottom-sheet",
   "author": "Collaborne B.V. <opensource@collaborne.com>",
   "license": "Apache-2.0",
   "dependencies": {
+    "@collaborne/lit-flexbox-literals": "^0.1.0",
     "@polymer/iron-icon": "^3.0.0",
     "@polymer/iron-icons": "^3.0.0",
-    "@polymer/iron-selector": "^3.0.0",
     "@polymer/neon-animation": "^3.0.0",
     "@polymer/paper-dialog": "^3.0.0",
     "@polymer/paper-item": "^3.0.0",
     "@polymer/paper-ripple": "^3.0.0",
     "@polymer/paper-styles": "^3.0.0",
-    "@polymer/polymer": "^3.0.0"
+    "@polymer/polymer": "3.1.0",
+    "lit-element": "^2.1.0"
   },
   "devDependencies": {
     "@polymer/iron-component-page": "^4.0.0",
     "@polymer/iron-demo-helpers": "^3.0.0",
     "@polymer/paper-button": "^3.0.0",
     "@polymer/paper-checkbox": "^3.0.0",
-    "eslint": "^5.13.0",
-    "eslint-config-collaborne": "^1.5.0",
+    "@webcomponents/webcomponentsjs": "^2.2.8",
     "polymer-cli": "^1.9.6",
+    "ts-node": "^8.0.3",
+    "tslint": "^5.14.0",
+    "tslint-config-collaborne": "^0.0.4",
+    "typescript": "^3.3.4000",
     "web-animations-js": "^2.3.1"
   }
 }

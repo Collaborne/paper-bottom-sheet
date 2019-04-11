@@ -21,6 +21,11 @@ npm install --save @collaborne/paper-bottom-sheet
 </paper-bottom-sheet>
 ```
 
+To develop:
+```sh
+npm run start-dev
+```
+
 ## License
 
     This software is licensed under the Apache 2 license, quoted below.
